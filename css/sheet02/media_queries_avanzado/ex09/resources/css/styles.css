@@ -1,0 +1,16 @@
+.flex-container {
+    display: flex;
+    height: 100px;
+    gap: 10px;
+}
+
+.item {
+    flex-grow: 1;
+    background-color: rgb(201, 198, 198);
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
