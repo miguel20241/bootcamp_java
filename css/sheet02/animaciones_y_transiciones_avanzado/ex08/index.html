@@ -7,7 +7,18 @@
     <title>Ejercicio 8</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        /* Aquí van tus estilos CSS */
+        @keyframes bounce {
+            0% {top: 0px;}
+            50% {top: 200px;}
+            100% {top: 0px;}
+        }
+
+        .bounce-box {
+            position: relative;
+            animation-name: bounce;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
     </style>
 </head>
 
