@@ -1,0 +1,16 @@
+.flex-container {
+    display: flex;
+}
+
+.item_flexible {
+    flex-grow: 8;
+}
+
+.item {
+    flex-grow: 1;
+}
+
+div {
+    text-align: center;
+    border: 1px solid black;
+}
