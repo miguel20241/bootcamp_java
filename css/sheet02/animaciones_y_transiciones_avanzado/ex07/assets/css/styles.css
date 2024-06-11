@@ -3,4 +3,14 @@
     width: 100px;
     height: 100px;
     background-color: lightcoral;
-    }
+    transition: 0.3s;
+    padding: 10px;
+}
+
+.animate-box:hover {
+    transform: 
+        scale(1.5)
+        translate(20px, 20px)
+    ;
+    
+}
