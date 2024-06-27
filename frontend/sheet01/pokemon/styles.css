@@ -1,0 +1,92 @@
+body {
+    background-color: yellow;
+}
+
+.top_corners {}
+
+.bottom_corners {}
+
+.flex-container {
+    justify-content: center;
+    /* margin: 0 -5px; */
+    display: grid;
+    /* flex-direction: row; */
+    align-items: center;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    /* width: 75%; */
+}
+
+.column {
+    /* width: 20%; */
+    /* padding: 0 10px; */
+}
+
+#searchInputId {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: left;
+    width: 62%;
+    padding: 0 10px;
+    margin: 10px;
+    border: none;
+    height: 20px;
+}
+
+/* --------------------- Card -------------- */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: rgb(255 255 255);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.pokemonIdLabel {
+    text-align: left;
+}
+
+.dataContainer {
+    padding: 0px 16px 16px 16px;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+}
+
+h4 {
+    text-align: left;
+    margin: 0px 0px 10px 0px;
+}
+
+.imgContainer {
+    background-color: rgb(223 223 223);
+    padding: 16px 16px 0px 16px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.typeContainer {
+    display: flex;
+}
+
+.pokemonType {
+    border-radius: 5px;
+    border: 1px solid rgb(19, 18, 18);
+    padding: 3px;
+    margin: 0px 5px 5px 0px;
+}
+
+.evolutionContainer {
+    border-left: 3px solid black;
+    justify-content: left;
+    display: grid;
+    padding-left: 10px;
+}
+
+.evolutionContainer * {
+    margin: unset;
+}
+
+/* --------------------- End Card ------------- */
