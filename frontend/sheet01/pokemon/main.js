@@ -96,6 +96,7 @@ function createCard(pokemonData) {
             const element = pokemonData[key];
             const card = document.createElement("div");
             card.className  = "card";
+            card.id = element.name;
 
             card.innerHTML =    `<div class="imgContainer">
                                     <img src="${element.img}" alt="Imaagen pokemon" style="width:100%">
@@ -112,8 +113,6 @@ function createCard(pokemonData) {
             let span = "";
             const divTypeContainer = document.getElementById(`typeContainer${element.id}`);
 
-            divTypeContainer.className = "typeContainer";
-
             for (const key in element.types) {
                 if (Object.hasOwnProperty.call(element.types, key)) {
                     const type = element.types[key];
@@ -121,14 +120,16 @@ function createCard(pokemonData) {
                     span += `<span class="pokemonType">${capitalizeFirstLetter(type)}</span>`;
                 }
             }
+            
             divTypeContainer.innerHTML = span;
 
             const divEvolutionContainer = document.getElementById(`evolutionContainer${element.id}`);
 
             if (element.parent != null) {
-                let h4 = document.createElement("h4");
-                h4.innerHTML = `<p>Evoluciona de:</p><h4>${capitalizeFirstLetter(element.parent)}</h4>`;
-                divEvolutionContainer.appendChild(h4);
+                divEvolutionContainer.innerHTML = `<p>Evoluciona de:</p><h4>${capitalizeFirstLetter(element.parent)}</h4>`;
+            } else {
+                divEvolutionContainer.innerHTML = `<p>Evoluciona de:</p><h4>nada</h4>`;
+                divEvolutionContainer.className = "hideEvolution evolutionContainer";
             }
         }
     }
@@ -137,5 +138,29 @@ function createCard(pokemonData) {
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+document.getElementById('searchInputId').addEventListener('keyup', (event) => {
+    let search = document.getElementById('searchInputId').value;
+    
+    [...document.getElementsByClassName('hideCard')].forEach(element => {
+        element.className = 'card';
+    });
+    
+    const pokemonList = [...document.getElementsByClassName('card')];    
+
+    let filterPokemonList = pokemonList.filter(function (str) { 
+        return str.id.indexOf(search) === -1; 
+    });
+    
+    for (const key in filterPokemonList) {
+        if (Object.hasOwnProperty.call(filterPokemonList, key)) {
+            filterPokemonList[key].className = 'hideCard';
+        }
+    }
+});
+
+document.getElementsByClassName('card').addEventListener('click', (event) => {
+    // Al pinchar, ocultar todos y aumentar el tamaño.
+});
 
 getListPokemon();

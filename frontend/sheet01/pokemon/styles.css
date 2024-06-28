@@ -1,25 +1,59 @@
 body {
     background-color: yellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.top_corners {}
+.top_corners {
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+   
+}
 
-.bottom_corners {}
+.top_corners.left {
+    top: -50px;
+    left: -50px;
+    rotate: 45deg;
+}
 
-.flex-container {
+.top_corners.right {
+    top: -50px;
+    right: -50px;
+    rotate: 45deg
+}
+
+.bottom_corners {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: fixed;
+}
+
+.bottom_corners.left {
+    bottom: -50px;
+    left: -50px;
+    rotate: 45deg;
+}
+
+.bottom_corners.right {
+    bottom: -50px;
+    right: -50px;
+    rotate: 45deg
+}
+
+.grid-container {
     justify-content: center;
-    /* margin: 0 -5px; */
     display: grid;
-    /* flex-direction: row; */
     align-items: center;
     grid-template-columns: auto auto auto;
     gap: 10px;
-    /* width: 75%; */
 }
 
-.column {
-    /* width: 20%; */
-    /* padding: 0 10px; */
+.grid-container-input {
+    display: flex;
+    justify-content: center;
 }
 
 #searchInputId {
@@ -30,6 +64,7 @@ body {
     margin: 10px;
     border: none;
     height: 20px;
+    margin-inline: 24%;
 }
 
 /* --------------------- Card -------------- */
@@ -39,6 +74,7 @@ body {
     transition: 0.3s;
     border-radius: 5px;
     background-color: rgb(255 255 255);
+    width: 200px;
 }
 
 .card:hover {
@@ -82,11 +118,19 @@ h4 {
     border-left: 3px solid black;
     justify-content: left;
     display: grid;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .evolutionContainer * {
     margin: unset;
+}
+
+.hideEvolution {
+    visibility: hidden;
+}
+
+.hideCard {
+    display: none;
 }
 
 /* --------------------- End Card ------------- */
