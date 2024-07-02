@@ -8,7 +8,6 @@ body {
     width: 100px;
     height: 100px;
     position: fixed;
-   
 }
 
 .top_corners.left {
@@ -82,7 +81,10 @@ body {
 }
 
 .pokemonIdLabel {
-    text-align: left;
+    background-color: rgb(208 204 201);
+    width: fit-content;
+    margin-left: -15px;
+    padding: 2px 10px;
 }
 
 .dataContainer {
@@ -125,12 +127,30 @@ h4 {
     margin: unset;
 }
 
+.evolutionContainer>p {
+    text-align: left;
+}
+
 .hideEvolution {
     visibility: hidden;
 }
 
 .hideCard {
     display: none;
+}
+
+.hideBtn {
+    display: none;
+}
+
+.resizeCard {
+    width: 500px;
+}
+
+.btnContainer {
+    display: flex !important;
+    justify-content: center;
+    margin: 0px 10px 10px 0px;
 }
 
 /* --------------------- End Card ------------- */

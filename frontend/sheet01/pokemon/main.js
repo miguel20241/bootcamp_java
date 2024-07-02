@@ -98,14 +98,17 @@ function createCard(pokemonData) {
             card.className  = "card";
             card.id = element.name;
 
-            card.innerHTML =    `<div class="imgContainer">
-                                    <img src="${element.img}" alt="Imaagen pokemon" style="width:100%">
+            card.innerHTML =    `<div class="imgContainer" onClick="showDetails(${element.name})">
+                                    <img src="${element.img}" alt="Imagen pokemon" style="width:100%">
                                     <p class="pokemonIdLabel">ID/${element.id}</p>
                                 </div>
                                 <div class="dataContainer">
                                     <h4><b>${capitalizeFirstLetter(element.name)}</b></h4>
                                     <div id="typeContainer${element.id}" class="typeContainer"></div>
                                     <div id="evolutionContainer${element.id}" class="evolutionContainer"></div>
+                                </div>
+                                <div class="btnContainer">
+                                    <button id="backBtn_${element.name}" class="hideBtn" onClick="closeDetails(${element.name})">Volver</button>
                                 </div>`;
 
             container.appendChild(card);
@@ -120,15 +123,17 @@ function createCard(pokemonData) {
                     span += `<span class="pokemonType">${capitalizeFirstLetter(type)}</span>`;
                 }
             }
-            
+
             divTypeContainer.innerHTML = span;
 
             const divEvolutionContainer = document.getElementById(`evolutionContainer${element.id}`);
 
             if (element.parent != null) {
-                divEvolutionContainer.innerHTML = `<p>Evoluciona de:</p><h4>${capitalizeFirstLetter(element.parent)}</h4>`;
+                divEvolutionContainer.innerHTML = `<p>Evoluciona de:</p>
+                                                    <p><b>${capitalizeFirstLetter(element.parent)}</b></p>`;
             } else {
-                divEvolutionContainer.innerHTML = `<p>Evoluciona de:</p><h4>nada</h4>`;
+                divEvolutionContainer.innerHTML = `<p>Evoluciona de:</p>
+                                                    <p><b>nada</b></p>`;
                 divEvolutionContainer.className = "hideEvolution evolutionContainer";
             }
         }
@@ -139,6 +144,7 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// Seleccionar pokemons al buscar por nombre
 document.getElementById('searchInputId').addEventListener('keyup', (event) => {
     let search = document.getElementById('searchInputId').value;
     
@@ -159,8 +165,26 @@ document.getElementById('searchInputId').addEventListener('keyup', (event) => {
     }
 });
 
-document.getElementsByClassName('card').addEventListener('click', (event) => {
-    // Al pinchar, ocultar todos y aumentar el tamaño.
-});
+function showDetails(card) {
+    [...document.getElementsByClassName('card')].forEach(element => {
+        element.className = 'hideCard';
+    });
+    
+    card.className = 'card resizeCard';
+    
+    let backBtn = document.getElementById(`backBtn_${card.id}`);
+    backBtn.className = '';
+}
+
+function closeDetails(cardId) {
+    [...document.getElementsByClassName('hideCard')].forEach(element => {
+        element.className = 'card';
+    });
+    cardId.className = 'card';
+    
+    const backBtn = document.getElementById('backBtn_' + cardId.id);
+    backBtn.className = 'hideBtn';
+}
+
 
 getListPokemon();
