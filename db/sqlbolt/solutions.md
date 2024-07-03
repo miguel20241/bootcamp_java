@@ -292,97 +292,41 @@ WHERE director = "Andrew Stanton";
 ~~~
 
 
-# 
-## 
-1. 
+# Lesson 16: Creating tables
+## Exercise 16 - Tasks
+1. Create a new table named Database with the following columns: \
+– Name A string (text) describing the name of the database \
+– Version A number (floating point) of the latest version of this database \
+– Download_count An integer count of the number of times this database was downloaded \
+This table has no constraints.
 ~~~sql
-
-~~~
-2. 
-~~~sql
-
-~~~
-3. 
-~~~sql
-
-~~~
-4. 
-~~~sql
-
+CREATE TABLE IF NOT EXISTS database (
+    name VARCHAR,
+    version FLOAT,
+    download_count INT
+);
 ~~~
 
-# 
-## 
-1. 
+# Lesson 17: Altering tables
+## Exercise 17 - Tasks
+1. Add a column named Aspect_ratio with a FLOAT data type to store the aspect-ratio each movie was released in.
 ~~~sql
-
+ALTER TABLE Movies
+ADD Aspect_ratio FLOAT;
 ~~~
-2. 
+2. Add another column named Language with a TEXT data type to store the language that the movie was released in. Ensure that the default for this language is English.
 ~~~sql
-
-~~~
-3. 
-~~~sql
-
-~~~
-4. 
-~~~sql
-
+ALTER TABLE Movies
+ADD Language VARCHAR DEFAULT "English";
 ~~~
 
-# 
-## 
-1. 
+# Lesson 18: Dropping tables
+## Exercise 18 - Tasks
+1. We've sadly reached the end of our lessons, lets clean up by removing the Movies table
 ~~~sql
-
+DROP TABLE Movies;
 ~~~
-2. 
+2. And drop the BoxOffice table as well
 ~~~sql
-
-~~~
-3. 
-~~~sql
-
-~~~
-4. 
-~~~sql
-
-~~~
-
-# 
-## 
-1. 
-~~~sql
-
-~~~
-2. 
-~~~sql
-
-~~~
-3. 
-~~~sql
-
-~~~
-4. 
-~~~sql
-
-~~~
-
-# 
-## 
-1. 
-~~~sql
-
-~~~
-2. 
-~~~sql
-
-~~~
-3. 
-~~~sql
-
-~~~
-4. 
-~~~sql
-
+DROP TABLE BoxOffice;
 ~~~
