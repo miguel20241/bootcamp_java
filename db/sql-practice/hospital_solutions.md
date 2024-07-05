@@ -311,27 +311,54 @@ SELECT
     END AS gender
 FROM patients p; 
 ~~~
-## 
+## 41. Show patient_id, first_name, last_name from patients whose does not have any records in the admissions table. (Their patient_id does not exist in any admissions.patient_id rows.)
 ~~~sql
-
+SELECT p.patient_id, p.first_name, p.last_name 
+FROM patients p
+LEFT JOIN admissions a ON p.patient_id = a.patient_id
+WHERE p.patient_id NOT IN (SELECT ad.patient_id FROM admissions ad GROUP BY ad.patient_id);
 ~~~
-## 
+## 42. Show all of the patients grouped into weight groups. Show the total amount of patients in each weight group. Order the list by the weight group decending. For example, if they weight 100 to 109 they are placed in the 100 weight group, 110-119 = 110 weight group, etc.
 ~~~sql
-
+SELECT COUNT(p.patient_id), FLOOR(p.weight / 10) * 10 AS weight_group
+FROM patients p
+GROUP BY weight_group
+ORDER BY weight_group DESC;
 ~~~
-## 
+## 43. Show patient_id, weight, height, isObese from the patients table. Display isObese as a boolean 0 or 1. Obese is defined as weight(kg)/(height(m)2) >= 30. weight is in units kg. height is in units cm.
 ~~~sql
-
+SELECT 
+	p.patient_id, weight, height, 
+	IIF((weight / POW((height/100.0), 2)) >= 30.0, 1, 0) AS isObese
+FROM patients p;
 ~~~
-## 
+## 44. Show patient_id, first_name, last_name, and attending doctor's specialty. Show only the patients who has a diagnosis as 'Epilepsy' and the doctor's first name is 'Lisa'. Check patients, admissions, and doctors tables for required information.
 ~~~sql
-
+SELECT 
+	p.patient_id, p.first_name, p.last_name, d.specialty
+FROM patients p
+LEFT JOIN admissions a ON p.patient_id = a.patient_id
+LEFT JOIN doctors d ON a.attending_doctor_id = d.doctor_id
+WHERE 
+    a.diagnosis = 'Epilepsy' 
+    AND d.first_name = 'Lisa';
 ~~~
-## 
+## 45. All patients who have gone through admissions, can see their medical documents on our site. Those patients are given a temporary password after their first admission. Show the patient_id and temp_password.
+
+The password must be the following, in order:
+1. patient_id
+2. the numerical length of patient's last_name
+3. year of patient's birth_date
 ~~~sql
-
+SELECT DISTINCT
+	a.patient_id,
+    CONCAT(p.patient_id, 
+    LENGTH(p.last_name), 
+    YEAR(p.birth_date)) AS temp_password
+FROM patients p
+JOIN admissions a ON p.patient_id = a.patient_id;
 ~~~
-## 
+## 46. 
 ~~~sql
 
 ~~~
