@@ -18,3 +18,6 @@ matriculaciones.
 #
 ![Solucion](./ex03/Ex03-Sistema_de_gestion_escolar.png)
 
+# Ejercicio 4 - Hospital.
+Diseña una base de datos para un hospital que gestione pacientes, doctores y citas médicas.
+#
