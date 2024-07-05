@@ -11,3 +11,10 @@ Diseña una base de datos para una tienda en línea que gestione productos,
 clientes y pedidos.
 #
 ![Solucion](./ex02/Ex02-Tienda_online.png)
+
+# Ejercicio 3 - Sistema de gestión escolar
+Diseña una base de datos para una escuela que gestione estudiantes, cursos y
+matriculaciones.
+#
+![Solucion](./ex03/Ex03-Sistema_de_gestion_escolar.png)
+
