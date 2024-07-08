@@ -27,3 +27,4 @@ Diseña una base de datos para un hospital que gestione pacientes, doctores y ci
 Diseña una base de datos para una red social que gestione usuarios,
 publicaciones y comentarios.
 #
+![Solucion](./ex05/Ex05-Red_social.png)
