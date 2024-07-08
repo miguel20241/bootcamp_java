@@ -21,3 +21,4 @@ matriculaciones.
 # Ejercicio 4 - Hospital.
 Diseña una base de datos para un hospital que gestione pacientes, doctores y citas médicas.
 #
+![Solucion](./ex04/Ex04-Hospital.png)
