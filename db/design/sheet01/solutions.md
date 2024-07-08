@@ -22,3 +22,8 @@ matriculaciones.
 Diseña una base de datos para un hospital que gestione pacientes, doctores y citas médicas.
 #
 ![Solucion](./ex04/Ex04-Hospital.png)
+
+# Ejercicio 5 - Red social.
+Diseña una base de datos para una red social que gestione usuarios,
+publicaciones y comentarios.
+#
