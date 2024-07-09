@@ -6,13 +6,12 @@ public class Palindromo {
     public static void main(String[] args) {
         
         boolean isPalindrome = true;
-
         Scanner scanObj = new Scanner(System.in);
 
         System.out.println("Introduzca un texto:");
+        String text = scanObj.nextLine();
 
-        if (scanObj.hasNextLine()) {
-            String text = scanObj.nextLine();
+        if (!text.isEmpty()) {
             // Curiosa utilización de un bucle for
             for(int i = 0, j = text.length() - 1; i <= j; i++, j--){
                 if (text.charAt(i) != text.charAt(j)) {
