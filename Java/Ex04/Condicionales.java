@@ -19,6 +19,8 @@ public class Condicionales {
             }
         } else {
             System.out.println("No ha introducido un número entero");
-        }        
+        }     
+        
+        scanObj.close();
     }
 }
