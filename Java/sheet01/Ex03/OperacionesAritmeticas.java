@@ -1,4 +1,4 @@
-package Java.Ex03;
+package Java.sheet01.Ex03;
 import java.util.Scanner;
 
 public class OperacionesAritmeticas {

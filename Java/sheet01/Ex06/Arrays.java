@@ -1,4 +1,4 @@
-package Java.Ex06;
+package Java.sheet01.Ex06;
 
 public class Arrays {
     public static void main(String[] args) {

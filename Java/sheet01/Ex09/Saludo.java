@@ -1,4 +1,4 @@
-package Java.Ex09;
+package Java.sheet01.Ex09;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Java.Ex04;
+package Java.sheet01.Ex04;
 import java.util.Scanner;
 
 public class Condicionales {

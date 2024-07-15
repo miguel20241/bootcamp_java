@@ -1,4 +1,4 @@
-package Java.Ex10;
+package Java.sheet01.Ex10;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

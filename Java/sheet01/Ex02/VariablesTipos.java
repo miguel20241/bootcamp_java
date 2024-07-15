@@ -1,4 +1,4 @@
-package Java.Ex02;
+package Java.sheet01.Ex02;
 
 public class VariablesTipos {
     public static void main(String[] args) {

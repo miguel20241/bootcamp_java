@@ -1,4 +1,4 @@
-package Java.Ex07;
+package Java.sheet01.Ex07;
 
 public class Funciones {
     public static void main(String[] args) {

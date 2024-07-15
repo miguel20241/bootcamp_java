@@ -1,4 +1,4 @@
-package Java.Ex05;
+package Java.sheet01.Ex05;
 
 public class BucleFor {
     public static void main(String[] args) {
