@@ -6,8 +6,7 @@ public class Persona {
 
     public Persona(String name, int edad) {
         this.name = name;
-        this.edad = edad;
-        
+        this.edad = edad;    
     }
 
     public String getName() {
@@ -26,8 +25,8 @@ public class Persona {
         this.edad = edad;
     }
 
-    public void mostrarDetalles(Persona persona) {
-        System.out.println(persona.getName());
-        System.out.println(persona.getEdad());
+    public void mostrarDetalles() {
+        System.out.println(this.getName());
+        System.out.println(this.getEdad());
     }
 }

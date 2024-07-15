@@ -17,10 +17,10 @@ public class Estudiante extends Persona{
         this.grado = grado;
     }
 
-    public void mostrarDetalles(Estudiante estudiante) {
-        System.out.println(estudiante.getName());
-        System.out.println(estudiante.getEdad());
-        System.out.println(estudiante.getGrado());
+    public void mostrarDetalles() {
+        System.out.println(this.getName());
+        System.out.println(this.getEdad());
+        System.out.println(this.getGrado());
     }
     
 }
