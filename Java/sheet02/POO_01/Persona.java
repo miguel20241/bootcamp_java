@@ -25,4 +25,9 @@ public class Persona {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    public void mostrarDetalles(Persona persona) {
+        System.out.println(persona.getName());
+        System.out.println(persona.getEdad());
+    }
 }
