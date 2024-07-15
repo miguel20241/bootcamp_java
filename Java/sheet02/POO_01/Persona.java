@@ -1,6 +1,7 @@
 package Java.sheet02.POO_01;
 
 public class Persona {
+    
     private String name;
     private int edad;
 

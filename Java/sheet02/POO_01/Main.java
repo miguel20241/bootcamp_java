@@ -12,5 +12,21 @@ public class Main {
 
         Estudiante estudiante = new Estudiante("Ana", 20, "Ingeniería");
         estudiante.mostrarDetalles();
+
+        Empleado empleado = new Empleado("Luis", 30, 50000f);
+        empleado.mostrarDetalles();
+
+        // Ejemplo de polimorfismo
+        System.out.println("Empieza el array:");
+        Persona[] personas = {
+            new Estudiante("Ana", 20, "Ingeniería"),
+            new Empleado("Luis", 30, 50000),
+            new Persona("Marta", 40)
+        };
+
+        for (Persona person : personas) {
+            person.mostrarDetalles();
+        }
+        // Fin ejemplo de polimorfismo
     }
 }
