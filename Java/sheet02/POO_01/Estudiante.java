@@ -1,6 +1,6 @@
 package Java.sheet02.POO_01;
 
-public class Estudiante extends Persona{
+public class Estudiante extends Persona implements Imprimible{
 
     private String grado;
 
@@ -17,10 +17,15 @@ public class Estudiante extends Persona{
         this.grado = grado;
     }
 
+    @Override
     public void mostrarDetalles() {
-        System.out.println(this.getName());
-        System.out.println(this.getEdad());
+        super.mostrarDetalles();
+
         System.out.println(this.getGrado());
     }
     
+    public void imprimir() {
+        System.out.println("Imprimiendo detalles del estudiante:");
+        mostrarDetalles();
+    }
 }

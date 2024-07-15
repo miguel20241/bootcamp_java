@@ -11,13 +11,15 @@ public class Main {
         persona.mostrarDetalles();
 
         Estudiante estudiante = new Estudiante("Ana", 20, "Ingeniería");
-        estudiante.mostrarDetalles();
+        //estudiante.mostrarDetalles();
+        estudiante.imprimir();
 
         Empleado empleado = new Empleado("Luis", 30, 50000f);
-        empleado.mostrarDetalles();
+        //empleado.mostrarDetalles();
+        empleado.imprimir();
 
         // Ejemplo de polimorfismo
-        System.out.println("Empieza el array:");
+        System.out.println("Uso polimorfismo:");
         Persona[] personas = {
             new Estudiante("Ana", 20, "Ingeniería"),
             new Empleado("Luis", 30, 50000),
