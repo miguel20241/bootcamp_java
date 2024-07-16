@@ -1,7 +1,6 @@
 package Java.sheet03.Ex02;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
