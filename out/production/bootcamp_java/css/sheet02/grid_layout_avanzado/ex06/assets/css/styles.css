@@ -1,0 +1,19 @@
+.grid-item_large {
+    background-color: rgb(203, 202, 202);
+    grid-column: span 2;
+    padding: 10px;
+    text-align: center;
+}
+
+.grid-item {
+    background-color: rgb(203, 202, 202);
+    padding: 10px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}

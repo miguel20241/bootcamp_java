@@ -1,0 +1,156 @@
+body {
+    background-color: yellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.top_corners {
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+}
+
+.top_corners.left {
+    top: -50px;
+    left: -50px;
+    rotate: 45deg;
+}
+
+.top_corners.right {
+    top: -50px;
+    right: -50px;
+    rotate: 45deg
+}
+
+.bottom_corners {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: fixed;
+}
+
+.bottom_corners.left {
+    bottom: -50px;
+    left: -50px;
+    rotate: 45deg;
+}
+
+.bottom_corners.right {
+    bottom: -50px;
+    right: -50px;
+    rotate: 45deg
+}
+
+.grid-container {
+    justify-content: center;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.grid-container-input {
+    display: flex;
+    justify-content: center;
+}
+
+#searchInputId {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: left;
+    width: 62%;
+    padding: 0 10px;
+    margin: 10px;
+    border: none;
+    height: 20px;
+    margin-inline: 24%;
+}
+
+/* --------------------- Card -------------- */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: rgb(255 255 255);
+    width: 200px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.pokemonIdLabel {
+    background-color: rgb(208 204 201);
+    width: fit-content;
+    margin-left: -15px;
+    padding: 2px 10px;
+}
+
+.dataContainer {
+    padding: 0px 16px 16px 16px;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+}
+
+h4 {
+    text-align: left;
+    margin: 0px 0px 10px 0px;
+}
+
+.imgContainer {
+    background-color: rgb(223 223 223);
+    padding: 16px 16px 0px 16px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.typeContainer {
+    display: flex;
+}
+
+.pokemonType {
+    border-radius: 5px;
+    border: 1px solid rgb(19, 18, 18);
+    padding: 3px;
+    margin: 0px 5px 5px 0px;
+}
+
+.evolutionContainer {
+    border-left: 3px solid black;
+    justify-content: left;
+    display: grid;
+    padding-left: 5px;
+}
+
+.evolutionContainer * {
+    margin: unset;
+}
+
+.evolutionContainer>p {
+    text-align: left;
+}
+
+.hideEvolution {
+    visibility: hidden;
+}
+
+.hideCard {
+    display: none;
+}
+
+.hideBtn {
+    display: none;
+}
+
+.resizeCard {
+    width: 500px;
+}
+
+.btnContainer {
+    display: flex !important;
+    justify-content: center;
+    margin: 0px 10px 10px 0px;
+}
+
+/* --------------------- End Card ------------- */

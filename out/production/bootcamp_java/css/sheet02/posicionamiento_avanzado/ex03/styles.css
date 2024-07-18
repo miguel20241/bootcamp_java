@@ -1,0 +1,15 @@
+.flex-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: silver;
+    width: 150px;
+    min-width: 150px;
+}
+
+.main-content {
+    background-color:rgb(153, 176, 176);
+    width: 100%;
+}

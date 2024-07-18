@@ -1,0 +1,7 @@
+.absolute-box {
+    border: 1px solid black;
+    position: absolute;
+    translate: -50% -50%;
+    left: 50%;
+    top: 50%
+}
