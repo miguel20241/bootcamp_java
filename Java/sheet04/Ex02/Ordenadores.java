@@ -144,7 +144,7 @@ public class Ordenadores {
             if (getDiscoDuro() - datosGB < 0) {
                 setDiscoDuroUtilizado(0);
             } else {
-                setDiscoDuroUtilizado(getDiscoDuroUtilizado() + datosGB);
+                setDiscoDuroUtilizado(Math.max(getDiscoDuroUtilizado() - datosGB, 0));
             }
         } else {
             System.out.println("El ordenador está apagado.");
