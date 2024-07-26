@@ -2,11 +2,12 @@ package com.todo.todo.Service;
 
 import com.todo.todo.Model.Todo;
 import com.todo.todo.Repository.TodoRepository;
+import com.todo.todo.dto.TodoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -17,12 +18,26 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
-    public Optional<Todo> getTodo (Long id) {
-        return todoRepository.findById(id);
+    public TodoDTO getTodo (Long id) {
+        Todo todo = todoRepository.findById(id).orElse(null);
+
+        if (todo != null) {
+            return new TodoDTO(todo);
+        }
+        return null;
     }
 
-    public List<Todo> getAllTodo() {
-        return (List<Todo>) todoRepository.findAll();
+    public List<TodoDTO> getAllTodo() {
+        List<Todo> todoList = todoRepository.findAll();
+
+        List<TodoDTO> todoDTOList = new ArrayList<>();;
+
+        for (Todo todo : todoList) {
+            TodoDTO todoDTO = new TodoDTO(todo);
+            todoDTOList.add(todoDTO);
+        }
+
+        return todoDTOList;
     }
 
     public void deleteTodo(Long id) {

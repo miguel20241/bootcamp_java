@@ -2,6 +2,7 @@ package com.todo.todo.Controller;
 
 import com.todo.todo.Model.Todo;
 import com.todo.todo.Service.TodoService;
+import com.todo.todo.dto.TodoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,11 +13,11 @@ import org.springframework.web.servlet.function.ServerResponse;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/api")
@@ -38,14 +39,22 @@ public class TodoController {
     }
 
     @GetMapping("/todo")
-    public ResponseEntity<Optional<Todo>> getTodo(@RequestParam Long id) {
-        return ResponseEntity.status(OK).body(todoService.getTodo(id));
+    public ResponseEntity<?> getTodo(@RequestParam Long id) {
+        TodoDTO todo = todoService.getTodo(id);
+        if (todo == null) {
+            return ResponseEntity.status(NO_CONTENT).body(null);
+        }
+        return ResponseEntity.status(OK).body(todo);
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Todo>> getAllTodo() {
-        return ResponseEntity.status(OK).body(todoService.getAllTodo());
-        //return todoService.getAllTodo();
+    public ResponseEntity<?> getAllTodo() {
+        List<TodoDTO> todoList = todoService.getAllTodo();
+
+        if (todoList == null) {
+            return ResponseEntity.status(NO_CONTENT).body(null);
+        }
+        return ResponseEntity.status(OK).body(todoList);
     }
 
     //Delete con pathVariable

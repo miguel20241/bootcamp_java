@@ -14,7 +14,7 @@ public class Todo {
     private String user;
     private boolean isDone;
 
-    protected Todo() {}
+    public Todo() {}
 
     public Todo(long id, String task, boolean isDone, String user) {
         this.id = id;
