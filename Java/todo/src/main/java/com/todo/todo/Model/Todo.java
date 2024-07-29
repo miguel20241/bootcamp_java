@@ -1,9 +1,7 @@
 package com.todo.todo.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
 @Entity
 public class Todo {
@@ -11,12 +9,16 @@ public class Todo {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String task;
-    private String user;
+
+    @ManyToOne()
+    @JoinColumn(name="user_id")
+    @JsonIgnoreProperties("todo")
+    private User user;
     private boolean isDone;
 
     public Todo() {}
 
-    public Todo(long id, String task, boolean isDone, String user) {
+    public Todo(long id, String task, boolean isDone, User user) {
         this.id = id;
         this.task = task;
         this.isDone = isDone;
@@ -39,11 +41,11 @@ public class Todo {
         this.task = task;
     }
 
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -54,6 +56,7 @@ public class Todo {
     public void setDone(boolean done) {
         isDone = done;
     }
+
 
     @Override
     public String toString() {
