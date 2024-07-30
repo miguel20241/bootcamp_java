@@ -11,7 +11,9 @@ public class UserDTO {
     private String name;
     private String surname;
     private LocalDate birthDate;
+    private String password;
     private List<Todo> todo;
+
 
     public UserDTO() {
     }
@@ -22,6 +24,7 @@ public class UserDTO {
         this.name = user.getName();
         this.surname = user.getSurname();
         this.birthDate = user.getBirthDate();
+        this.password = user.getPassword();
         this.todo = user.getTodo();
     }
 
@@ -66,7 +69,9 @@ public class UserDTO {
 
         int age = today.getYear() - birthDate.getYear();
 
-        if (todayDay <= birthDateDay && todayMonth <= birthDateMonth) {
+        if (todayMonth < birthDateMonth) {
+            age --;
+        } else if (todayMonth == birthDateMonth && todayDay < birthDateDay) {
             age --;
         }
 
@@ -83,5 +88,13 @@ public class UserDTO {
 
     public void setTodo(List<Todo> todo) {
         this.todo = todo;
+    }
+
+    public String getPassword() {
+        return "*******";
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

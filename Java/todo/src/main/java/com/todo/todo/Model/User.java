@@ -17,6 +17,7 @@ public class User {
     private String name;
     private String surname;
     private LocalDate birthDate;
+    private String password;
 
     @JsonIgnoreProperties("user")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
@@ -25,12 +26,13 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String userName, String name, String surname, LocalDate birthDate) {
+    public User(Long id, String userName, String name, String surname, LocalDate birthDate, String password) {
         this.id = id;
         this.userName = userName;
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
+        this.password = password;
     }
 
     public Long getId() {
@@ -79,5 +81,13 @@ public class User {
 
     public void setTodo(List<Todo> todo) {
         this.todo = todo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
