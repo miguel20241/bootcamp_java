@@ -4,9 +4,11 @@ import com.todo.todo.Model.User;
 import com.todo.todo.Service.UserService;
 import com.todo.todo.dto.UserDTO;
 import com.todo.todo.dto.UserUpdateDto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -21,7 +23,11 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/user")
-    public ResponseEntity<User> postUser(@RequestBody User user) {
+    public ResponseEntity<?> postUser(@Valid @RequestBody User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(bindingResult.getAllErrors(), BAD_REQUEST);
+        }
+
         User newUser = userService.createUser(user);
 
         URI location = ServletUriComponentsBuilder
@@ -30,7 +36,6 @@ public class UserController {
                 .buildAndExpand(newUser.getId())
                 .toUri();
         return ResponseEntity.status(CREATED).header(HttpHeaders.LOCATION, String.valueOf(location)).body(newUser);
-
     }
 
     @GetMapping("/user/{id}")

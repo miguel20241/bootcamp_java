@@ -2,6 +2,7 @@ package com.todo.todo.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+
+    @NotEmpty
     private String userName;
     private String name;
     private String surname;

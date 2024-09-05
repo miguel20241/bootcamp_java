@@ -4,9 +4,11 @@ import com.todo.todo.Model.Todo;
 import com.todo.todo.Service.TodoService;
 import com.todo.todo.dto.TodoDTO;
 import com.todo.todo.dto.TodoUpdateDto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -22,7 +24,11 @@ public class TodoController {
     TodoService todoService;
 
     @PostMapping("/todo")
-    public ResponseEntity<Todo> postTodo(@RequestBody Todo todo) {
+    public ResponseEntity<?> postTodo(@Valid @RequestBody Todo todo, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(bindingResult.getAllErrors(), BAD_REQUEST);
+        }
+
         Todo newTodo = todoService.createTodo(todo);
 
         URI location = ServletUriComponentsBuilder
@@ -30,7 +36,7 @@ public class TodoController {
                 .path("/{id}")
                 .buildAndExpand(newTodo.getId())
                 .toUri();
-       return ResponseEntity.status(CREATED).header(HttpHeaders.LOCATION, String.valueOf(location)).body(newTodo);
+        return ResponseEntity.status(CREATED).header(HttpHeaders.LOCATION, String.valueOf(location)).body(newTodo);
     }
 
     @GetMapping("/todo/{id}")

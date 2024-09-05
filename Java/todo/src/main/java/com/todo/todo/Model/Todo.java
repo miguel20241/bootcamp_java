@@ -2,12 +2,17 @@ package com.todo.todo.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Todo {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
+
+    @Size(message = "Debe contener entre 10 y 50 caracteres", max = 50, min = 10)
     private String task;
 
     @ManyToOne()

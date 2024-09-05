@@ -91,7 +91,7 @@ public class UserDTO {
     }
 
     public String getPassword() {
-        return "*******";
+        return password;
     }
 
     public void setPassword(String password) {
